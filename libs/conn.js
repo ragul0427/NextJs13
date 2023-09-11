@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
 const connectDB = async () => {
+  // mongodb://127.0.0.1:27017/Crud13
   try {
-    await mongoose.connect("mongodb://127.0.0.1:27017/Crud13");
+    await mongoose.connect("mongodb+srv://ragul8523947145:ragulhp2704@crud.q6zjhg8.mongodb.net/Crud?retryWrites=true&w=majority");
   } catch (err) {
     console.log(err,"werhuierwh");
   }
