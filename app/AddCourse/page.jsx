@@ -119,14 +119,14 @@ function Home() {
         closeIcon={false}
         width={360}
       >
-        <div className="w-[20vw]">
+        <div className="md:w-[20vw]">
           <input
             placeholder="Enter Update text"
             value={updatedCourse}
             onChange={(e) => {
               setUpdatedCourse(e.target.value);
             }}
-            className="border pl-2 border-gray-400 outline-none rounded-md py-1 w-[20vw]"
+            className="border pl-2 border-gray-400 outline-none rounded-md w-[76vw] py-1 lg:w-[20vw]"
           />
           <div className="flex gap-5 pt-5 items-end justify-end">
             <button
