@@ -10,7 +10,7 @@ import {
   updateCourse,
 } from "../../helper/apihelper";
 import { get } from "lodash";
-import { Modal } from "antd";
+import { Modal, Spin } from "antd";
 
 function Home() {
   const [data, setData] = useState([]);
@@ -18,14 +18,17 @@ function Home() {
   const [open, setOpen] = useState(false);
   const [updateId, setUpdateId] = useState("");
   const [updatedCourse, setUpdatedCourse] = useState("");
+  const [loading,setLoading]=useState(false)
 
   const fetchData = async () => {
     try {
+      setLoading(true)
       const result = await getCourse();
-
       setCourseName(get(result, "data.courses"));
     } catch (err) {
       console.log(err);
+    }finally{
+      setLoading(false)
     }
   };
 
@@ -64,7 +67,8 @@ function Home() {
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center gap-10 p-5 md:p-24">
+  <Spin spinning={loading}>
+      <main className="flex min-h-screen flex-col items-center gap-10 p-5 md:p-24">
       <div className="flex ">
         <input
           type="text"
@@ -147,6 +151,7 @@ function Home() {
         </div>
       </Modal>
     </main>
+  </Spin>
   );
 }
 
